@@ -1,0 +1,8 @@
+/node_modules
+/coverage
+/packages/*/lib
+/packages/*/node_modules
+/packages/*/.local
+/.local
+/packages/*/src/fixtures/**/node_modules/.cache
+/.changelog
