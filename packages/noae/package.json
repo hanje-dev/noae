@@ -14,9 +14,12 @@
     "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "./node_modules/.bin/noae-build"
   },
   "dependencies": {
     "@babel/core": "^7.18.2"
+  },
+  "devDependencies": {
+    "@noae/noae-build": "^1.1.12"
   }
 }

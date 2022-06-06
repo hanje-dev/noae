@@ -4,6 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "build": "lerna bootstrap && yarn run clean && lerna run build",
+    "clean": "rm -rf packages/**/lib"
+  },
   "devDependencies": {
     "@chydan/eslint-config-samoa": "^1.2.4",
     "@types/node": "^17.0.40",

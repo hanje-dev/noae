@@ -1,11 +1,15 @@
 {
   "name": "@noae/noae-build",
-  "version": "0.0.0",
+  "version": "1.1.12",
   "description": "> TODO: description",
   "author": "hanje <jerryhiian@gmail.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/noae-build.js",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.js",
+  "bin": {
+    "noae-build": "./lib/bin/index.js"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -17,7 +21,8 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "dev": "tsc --watch",
+    "build": "rm -rf ./lib && tsc"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
@@ -50,7 +55,7 @@
     "autoprefixer": "^10.4.7",
     "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-react-require": "^3.1.3",
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
     "es5-imcompatible-versions": "^0.1.73",
     "gulp-if": "^3.0.0",
@@ -60,7 +65,8 @@
     "less": "^4.1.2",
     "less-plugin-npm-import": "^2.1.0",
     "lodash": "^4.17.21",
-    "pkg-up": "^4.0.0",
+    "pkg-up": "^3.1.0",
+    "postcss": "^8.4.14",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.5",
     "rollup-plugin-postcss": "^4.0.2",
@@ -78,6 +84,19 @@
     "yargs-parser": "^21.0.1"
   },
   "devDependencies": {
-    "@types/gulp-plumber": "^0.0.33"
+    "@types/babel__core": "^7.1.19",
+    "@types/gulp-if": "^0.0.34",
+    "@types/gulp-less": "^0.0.32",
+    "@types/gulp-plumber": "^0.0.33",
+    "@types/lerna__project": "^4.0.0",
+    "@types/lerna__query-graph": "^4.0.1",
+    "@types/lodash": "^4.14.182",
+    "@types/rimraf": "^3.0.2",
+    "@types/semver": "^7.3.9",
+    "@types/signale": "^1.4.4",
+    "@types/through2": "^2.0.36",
+    "@types/update-notifier": "^5.1.0",
+    "@types/vinyl-fs": "^2.4.12",
+    "@types/yargs-parser": "^21.0.0"
   }
 }

@@ -77,7 +77,7 @@ function validateBundleOpts(bundleOpts: IBundleOptions, { cwd, rootPath }) {
   }
 }
 
-function isTypescriptFile(filePath) {
+function isTypescriptFile(filePath: string) {
   return filePath.endsWith('.ts') || filePath.endsWith('.tsx');
 }
 
@@ -99,7 +99,7 @@ export async function build(opts: IOpts, extraOpts: IExtraBuildOpts = {}) {
   });
 
   const pkgName = (typeof pkg === 'string' ? pkg : pkg?.name) || 'unknown';
-  const log = (msg) => {
+  const log = (msg: string) => {
     console.log(`${pkg ? `${randomColor(`${pkgName}`)}: ` : ''}${msg}`);
   };
 
@@ -122,7 +122,7 @@ export async function build(opts: IOpts, extraOpts: IExtraBuildOpts = {}) {
         rootPath,
         log,
         type: 'umd',
-        entry: bundleOpts.entry,
+        entry: bundleOpts.entry!,
         watch,
         dispose,
         bundleOpts,
@@ -141,7 +141,7 @@ export async function build(opts: IOpts, extraOpts: IExtraBuildOpts = {}) {
           rootPath,
           log,
           type: 'cjs',
-          entry: bundleOpts.entry,
+          entry: bundleOpts.entry!,
           watch,
           dispose,
           bundleOpts,
@@ -162,7 +162,7 @@ export async function build(opts: IOpts, extraOpts: IExtraBuildOpts = {}) {
           rootPath,
           log,
           type: 'esm',
-          entry: bundleOpts.entry,
+          entry: bundleOpts.entry!,
           importLibToEs,
           watch,
           dispose,
@@ -221,4 +221,9 @@ export async function buildForLerna(opts: IOpts) {
   return dispose;
 }
 
-export default async function (opts: IOpts) {}
+export default async function (opts: IOpts) {
+  const useLerna = existsSync(join(opts.cwd, 'lerna.json'));
+  const isLerna = useLerna && process.env.LERNA !== 'none';
+  const dispose = isLerna ? await buildForLerna(opts) : await build(opts);
+  return () => dispose.forEach((e) => e());
+}
