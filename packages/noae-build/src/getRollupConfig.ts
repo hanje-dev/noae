@@ -15,6 +15,7 @@ import typescript2 from 'rollup-plugin-typescript2';
 import { camelCase } from 'lodash';
 import tempDir from 'temp-dir';
 import autoprefixer from 'autoprefixer';
+// @ts-ignore
 import NpmImport from 'less-plugin-npm-import';
 import svgr from '@svgr/rollup';
 import getBabelConfig from './getBabelConfig';
@@ -104,10 +105,10 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
     extensions,
   };
   if (importLibToEs && type === 'esm') {
-    babelOpts.plugins.push(require.resolve('../lib/importLibToEs'));
+    babelOpts.plugins?.push(require.resolve('../lib/importLibToEs'));
   }
-  babelOpts.presets.push(...extraBabelPresets);
-  babelOpts.plugins.push(...extraBabelPlugins);
+  babelOpts.presets?.push(...extraBabelPresets);
+  babelOpts.plugins?.push(...extraBabelPlugins);
 
   // rollup configs
   const input = join(cwd, entry);
@@ -130,7 +131,7 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
     return id.split('/')[0];
   };
 
-  const testExternal = (pkgs, excludes, id) => {
+  const testExternal = (pkgs: string[], excludes: string[], id: string) => {
     if (excludes.includes(id)) {
       return false;
     }
@@ -222,7 +223,6 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
 
   switch (type) {
     case 'esm':
-      // eslint-disable-next-line no-case-declarations
       const output: Record<string, any> = {
         dir: join(cwd, `${(esm && (esm as any).dir) || 'dist'} `),
         entryFileNames: `${(esm && (esm as any).file) || `${name}.esm`}.js`,
@@ -284,7 +284,7 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
             format,
             sourcemap: umd && umd.sourcemap,
             file: join(cwd, `dist/${(umd && umd.file) || `${name}.umd`}.js`),
-            globals: umd && umd.globals,
+            globals: umd ? umd.globals : undefined,
             name: (umd && umd.name) || (pkg.name && camelCase(basename(pkg.name))),
           },
           plugins: [
@@ -305,7 +305,7 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
                   format,
                   sourcemap: umd && umd.sourcemap,
                   file: join(cwd, `dist/${(umd && umd.file) || `${name}.umd`}.min.js`),
-                  globals: umd && umd.globals,
+                  globals: umd ? umd.globals : undefined,
                   name: (umd && umd.name) || (pkg.name && camelCase(basename(pkg.name))),
                 },
                 plugins: [

@@ -1,4 +1,5 @@
 import { join, isAbsolute } from 'path';
+// @ts-ignore
 import slash from 'slash2';
 import getBabelConfig from './getBabelConfig';
 

@@ -17,12 +17,12 @@ const colors = [
 ];
 
 let index = 0;
-const cache = {};
+const cache: Record<string, any> = {};
 
-export default function (pkg) {
+export default function (pkg: string) {
   if (!cache[pkg]) {
     const color = colors[index];
-    let str = chalk[color].bold(pkg);
+    let str = (chalk as any)[color].bold(pkg);
     cache[pkg] = str;
     if (index === colors.length - 1) {
       index = 0;

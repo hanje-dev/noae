@@ -1,4 +1,5 @@
 import Ajv from 'ajv';
+// @ts-ignore
 import slash from 'slash2';
 import { relative, isAbsolute, resolve } from 'path';
 import signale from 'signale';
@@ -7,7 +8,7 @@ import schema from './schema';
 import { getExistFile } from './utils';
 import { IBundleOptions } from './types';
 
-function testDefault(obj) {
+function testDefault(obj: any) {
   return obj.default || obj;
 }
 
@@ -22,7 +23,7 @@ export const CONFIG_FILES = [
   '.umirc.library.tsx',
 ];
 
-const CLASSES = {
+const CLASSES: any = {
   Function: Function,
 };
 
@@ -68,11 +69,11 @@ export default function ({
       const ajv = extendAjv(new Ajv({ allErrors: true }));
       const isValid = ajv.validate(schema, config);
       if (!isValid) {
-        const errors = ajv.errors.map(({ schemaPath, message }, index) => {
+        const errors = ajv.errors?.map(({ schemaPath, message }, index) => {
           return `${index + 1}. ${schemaPath}${schemaPath ? ' ' : ''}${message}`;
         });
         throw new Error(
-          `Invalid options in ${slash(relative(cwd, configFile))} ${errors.join('\n')}`.trim()
+          `Invalid options in ${slash(relative(cwd, configFile))} ${errors?.join('\n')}`.trim()
         );
       }
     });

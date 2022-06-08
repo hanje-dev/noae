@@ -12,7 +12,7 @@ export default function (entry: string, opts: IBundleOptions): IBundleOptions {
     Object.keys(clone.overridesByEntry).forEach((key) => {
       const stripeKey = stripDotSlashPrefix(key);
       if (stripeKey !== key) {
-        clone.overridesByEntry[stripeKey] = clone.overridesByEntry[key];
+        clone.overridesByEntry![stripeKey] = clone.overridesByEntry![key];
       }
     });
     if (clone.overridesByEntry[stripedEntry]) {

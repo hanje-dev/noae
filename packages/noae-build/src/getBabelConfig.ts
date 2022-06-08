@@ -28,7 +28,7 @@ function transformImportLess2Css() {
   return {
     name: 'transform-import-less-to-css',
     visitor: {
-      ImportDeclaration(path) {
+      ImportDeclaration(path: any) {
         const re = /\.less$/;
         if (re.test(path.node.source.value)) {
           path.node.source.value = path.node.source.value.replace(re, '.css');
@@ -45,8 +45,8 @@ export default function (opts: IGetBabelConfigOpts) {
     type,
     runtimeHelpers,
     filePath,
-    browserFiles,
-    nodeFiles,
+    browserFiles = [],
+    nodeFiles = [],
     nodeVersion,
     lazy,
     lessInBabelMode,

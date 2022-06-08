@@ -1,4 +1,4 @@
-import { ModuleFormat, rollup, watch } from 'rollup';
+import { ModuleFormat, OutputOptions, rollup, watch } from 'rollup';
 import signale from 'signale';
 import chalk from 'chalk';
 import getRollupConfig from './getRollupConfig';
@@ -56,7 +56,7 @@ async function build(entry: string, opts: IRollupOpts) {
     } else {
       const { output, ...input } = rollupConfig;
       const bundle = await rollup(input);
-      await bundle.write(output);
+      await bundle.write(output as OutputOptions);
       log(`${chalk.green(`Build ${type} success`)} ${chalk.gray(`entry: ${entry}`)}`);
     }
   }

@@ -1,5 +1,7 @@
-import { getPackageSync } from '@lerna/project';
+import { getPackagesSync } from '@lerna/project';
 import { QueryGraph } from '@lerna/query-graph';
+import { PackageGraphNode } from '@lerna/package-graph';
+// @ts-ignore
 import { filterPackages } from '@lerna/filter-packages';
 
 export interface Options {
@@ -20,21 +22,24 @@ export interface Options {
  */
 export async function getLernaPackages(cwd: string, opts: Options = {}): Promise<any[]> {
   const { include = [], exclude = [], skipPrivate = false } = opts;
-  const allPkgs = getPackageSync(cwd) ?? [];
+  const allPkgs = getPackagesSync(cwd) ?? [];
   const pkgs = filterPackages(allPkgs, include, exclude, !skipPrivate, true);
   return await getStreamPackages(pkgs);
 }
 
 export function getStreamPackages(pkgs: any[]): Promise<any[]> {
-  const graph = new QueryGraph(pkgs, 'allDependencies', true);
+  const graph = new QueryGraph(pkgs, {
+    graphType: 'allDependencies',
+    rejectCycles: true,
+  });
   return new Promise((resolve) => {
     const returnValues: any[] = [];
     const queueNextAvailablePackages = () => {
-      graph.getAvailablePackages().forEach(({ pkg, name }) => {
-        graph.markAsTaken(name);
+      graph.getAvailablePackages().forEach((pkg) => {
+        graph.markAsTaken(pkg.name);
         Promise.resolve(pkg)
           .then((value) => returnValues.push(value))
-          .then(() => graph.markAsDone(pkg))
+          .then(() => graph.markAsDone(new PackageGraphNode(pkg)))
           .then(() => queueNextAvailablePackages());
       });
     };

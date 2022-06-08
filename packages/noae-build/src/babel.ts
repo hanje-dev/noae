@@ -6,6 +6,7 @@ import signale from 'signale';
 import lodash from 'lodash';
 import rimraf from 'rimraf';
 import through from 'through2';
+// @ts-ignore
 import slash from 'slash2';
 import * as chokidar from 'chokidar';
 import * as babel from '@babel/core';
@@ -23,7 +24,7 @@ interface IBabelOpts {
   rootPath?: string;
   type: 'esm' | 'cjs';
   target?: 'browser' | 'node';
-  log?: (string) => void;
+  log?: (msg: string) => void;
   watch?: boolean;
   dispose?: Dispose[];
   importLibToEs?: boolean;
@@ -64,10 +65,10 @@ export default async function (opts: IBabelOpts) {
   const targetDir = type === 'esm' ? 'es' : 'lib';
   const targetPath = join(cwd, targetDir);
 
-  log(chalk.gray(`Clean ${targetDir} directory`));
+  log!(chalk.gray(`Clean ${targetDir} directory`));
   rimraf.sync(targetPath);
 
-  function transform(opts: ITransformOpts) {
+  function transform(opts: ITransformOpts): any {
     const { file, type } = opts;
     const { opts: babelOpts, isBrowser } = getBabelConfig({
       target,
@@ -89,21 +90,21 @@ export default async function (opts: IBabelOpts) {
     babelOpts.plugins.push(...extraBabelPlugins);
 
     const relFile = slash(file.path).replace(`${cwd}/`, '');
-    log(`Transform to ${type} for ${chalk[isBrowser ? 'yellow' : 'blue'](relFile)}`);
+    log!(`Transform to ${type} for ${chalk[isBrowser ? 'yellow' : 'blue'](relFile)}`);
 
     return babel.transform(file.contents, {
       ...babelOpts,
       filename: file.path,
       // 不读取外部的babel.config.js配置文件，全采用babelOpts中的babel配置来构建
       configFile: false,
-    }).code;
+    })?.code;
   }
 
   /**
    * tsconfig.json is not valid json file
    * https://github.com/Microsoft/TypeScript/issues/20384
    */
-  function parseTsconfig(path: string) {
+  function parseTsconfig(path: string): any {
     const readFile = (path: string) => readFileSync(path, 'utf-8');
     const result = ts.readConfigFile(path, readFile);
     if (result.error) {
@@ -146,15 +147,15 @@ export default async function (opts: IBabelOpts) {
     return getTsconfigCompilerOptions(templateTsconfigPath) || {};
   }
 
-  function createStream(src) {
+  function createStream(src: string | string[]) {
     const tsConfig = getTSConfig();
     const babelTransformRegExp = disableTypeCheck ? /\.(t|j)sx?$/ : /\.jsx?$/;
 
-    function isTsFile(path) {
+    function isTsFile(path: string) {
       return /\.tsx?$/.test(path) && !path.endsWith('.d.ts');
     }
 
-    function isTransform(path) {
+    function isTransform(path: string) {
       return babelTransformRegExp.test(path) && !path.endsWith('.d.ts');
     }
 
@@ -166,11 +167,19 @@ export default async function (opts: IBabelOpts) {
       .pipe(watch ? gulpPlumber() : through.obj())
       .pipe(gulpIf((f) => !disableTypeCheck && isTsFile(f.path), gulpTs(tsConfig)))
       .pipe(
-        gulpIf((f) => lessInBabelMode && /\.less$/.test(f.path), gulpLess(lessInBabelMode || {}))
+        gulpIf(
+          (f: any) => !!lessInBabelMode && /\.less$/.test(f.path),
+          gulpLess(
+            (lessInBabelMode as {
+              paths?: any[];
+              plugins?: any[];
+            }) || {}
+          )
+        )
       )
       .pipe(
         gulpIf(
-          (f) => isTransform(f.path),
+          (f: any) => isTransform(f.path),
           through.obj((file, env, cb) => {
             try {
               file.contents = Buffer.from(transform({ file, type }));
@@ -203,20 +212,20 @@ export default async function (opts: IBabelOpts) {
 
     createStream(patterns).on('end', () => {
       if (watch) {
-        log(chalk.magenta(`Start Watching ${slash(srcPath).replace(`${cwd}/`, '')} directory...`));
+        log!(chalk.magenta(`Start Watching ${slash(srcPath).replace(`${cwd}/`, '')} directory...`));
         const watcher = chokidar.watch(patterns, {
           ignoreInitial: true,
         });
-        const files = [];
+        const files: string[] = [];
         const compileFiles = () => {
           while (files.length) {
-            createStream(files.pop());
+            createStream(files.pop()!);
           }
         };
         const debouncedCompileFiles = lodash.debounce(compileFiles, 1000);
         watcher.on('all', (event, fullPath) => {
           const relPath = fullPath.replace(srcPath, '');
-          log(`[${event}] ${slash(join(srcPath, relPath)).replace(`${cwd}/`, '')}`);
+          log!(`[${event}] ${slash(join(srcPath, relPath)).replace(`${cwd}/`, '')}`);
           if (!existsSync(fullPath)) return;
           if (statSync(fullPath).isFile()) {
             if (!files.includes(fullPath)) files.push(fullPath);
@@ -224,7 +233,7 @@ export default async function (opts: IBabelOpts) {
           }
         });
         process.once('SIGINT', () => {});
-        dispose.push(() => watcher.close());
+        dispose?.push(() => watcher.close());
       }
       resolve();
     });
