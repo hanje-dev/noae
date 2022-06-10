@@ -6,12 +6,14 @@
   "homepage": "https://github.com/hanje-dev/noaejs#readme",
   "license": "ISC",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "compiled",
+    "reexported"
   ],
   "publishConfig": {
     "access": "public"
