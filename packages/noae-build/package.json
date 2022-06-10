@@ -1,5 +1,5 @@
 {
-  "name": "@noae/noae-build",
+  "name": "@noaejs/noae-build",
   "version": "1.1.12",
   "description": "> TODO: description",
   "author": "hanje <jerryhiian@gmail.com>",
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "tsc --watch",
-    "build": "rm -rf ./lib && tsc"
+    "compile": "rm -rf ./lib && tsc"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
@@ -41,6 +41,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "@babel/register": "^7.17.7",
     "@lerna/filter-packages": "^5.0.0",
+    "@lerna/package-graph": "^5.1.0",
     "@lerna/project": "^5.0.0",
     "@lerna/query-graph": "^5.0.0",
     "@rollup/plugin-babel": "^5.3.1",

@@ -20,6 +20,6 @@
     "@babel/core": "^7.18.2"
   },
   "devDependencies": {
-    "@noae/noae-build": "^1.1.12"
+    "@noaejs/noae-build": "^1.1.12"
   }
 }

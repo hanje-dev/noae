@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "dev": "lerna run dev --parallel",
-    "build": "lerna bootstrap && yarn run clean && lerna run build",
-    "clean": "rm -rf packages/**/lib"
+    "build": "lerna bootstrap && lerna run build",
+    "compile": "lerna bootstrap && lerna run compile"
   },
   "devDependencies": {
     "@chydan/eslint-config-samoa": "^1.2.4",
