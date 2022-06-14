@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory, History } from '/Users/hanje/frontend/project/noae/packages/runtime';
+import { createBrowserHistory, History } from '/Users/hanje/frontend/projects/noae/packages/runtime';
 
 let options = {
   "basename": "/"

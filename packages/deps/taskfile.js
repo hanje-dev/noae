@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const fs = require('fs');
 const { relative, basename, resolve, join } = require('path');
 const { Module } = require('module');

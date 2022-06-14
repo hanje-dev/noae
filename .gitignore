@@ -25,3 +25,4 @@ output.txt
 /examples/*/logs
 /examples/*/run
 /examples/*/.idea
+/examples/*/.noae

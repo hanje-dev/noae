@@ -1826,7 +1826,16 @@
     dedent "^0.7.0"
     npmlog "^4.1.2"
 
-"@lerna/filter-packages@5.0.0", "@lerna/filter-packages@^5.0.0":
+"@lerna/filter-packages@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/filter-packages/-/filter-packages-4.0.0.tgz#b1f70d70e1de9cdd36a4e50caa0ac501f8d012f2"
+  integrity sha512-+4AJIkK7iIiOaqCiVTYJxh/I9qikk4XjNQLhE3kixaqgMuHl1NQ99qXRR0OZqAWB9mh8Z1HA9bM5K1HZLBTOqA==
+  dependencies:
+    "@lerna/validation-error" "4.0.0"
+    multimatch "^5.0.0"
+    npmlog "^4.1.2"
+
+"@lerna/filter-packages@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/filter-packages/-/filter-packages-5.0.0.tgz#9aae543ab5e45a1b0c3f7ad33e0686ceb8d92c88"
   integrity sha512-+EIjVVaMPDZ05F/gZa+kcXjBOLXqEamcEIDr+2ZXRgJmnrLx9BBY1B7sBEFHg7JXbeOKS+fKtMGVveV0SzgH3Q==
@@ -2039,6 +2048,17 @@
     npmlog "^4.1.2"
     tar "^6.1.0"
 
+"@lerna/package-graph@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/package-graph/-/package-graph-4.0.0.tgz#16a00253a8ac810f72041481cb46bcee8d8123dd"
+  integrity sha512-QED2ZCTkfXMKFoTGoccwUzjHtZMSf3UKX14A4/kYyBms9xfFsesCZ6SLI5YeySEgcul8iuIWfQFZqRw+Qrjraw==
+  dependencies:
+    "@lerna/prerelease-id-from-version" "4.0.0"
+    "@lerna/validation-error" "4.0.0"
+    npm-package-arg "^8.1.0"
+    npmlog "^4.1.2"
+    semver "^7.3.4"
+
 "@lerna/package-graph@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/package-graph/-/package-graph-5.0.0.tgz#53e88ef46359ef7a2f6e3b7c5bab82302a10653f"
@@ -2050,16 +2070,14 @@
     npmlog "^4.1.2"
     semver "^7.3.4"
 
-"@lerna/package-graph@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/@lerna/package-graph/-/package-graph-5.1.0.tgz#dc0e1a37716c3e29cda4bc57007026df04cf75c2"
-  integrity sha512-Ero1z9fnu65WxzrAzw9/I5+kfbT7HkyV9F9MTxYpnk7zOAAYvR4qSCkc/yNEJPr4kN8NvcY8CifNEQtORxkVXg==
+"@lerna/package@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/package/-/package-4.0.0.tgz#1b4c259c4bcff45c876ee1d591a043aacbc0d6b7"
+  integrity sha512-l0M/izok6FlyyitxiQKr+gZLVFnvxRQdNhzmQ6nRnN9dvBJWn+IxxpM+cLqGACatTnyo9LDzNTOj2Db3+s0s8Q==
   dependencies:
-    "@lerna/prerelease-id-from-version" "5.1.0"
-    "@lerna/validation-error" "5.1.0"
+    load-json-file "^6.2.0"
     npm-package-arg "^8.1.0"
-    npmlog "^4.1.2"
-    semver "^7.3.4"
+    write-pkg "^4.0.0"
 
 "@lerna/package@5.0.0":
   version "5.0.0"
@@ -2070,17 +2088,17 @@
     npm-package-arg "^8.1.0"
     write-pkg "^4.0.0"
 
+"@lerna/prerelease-id-from-version@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/prerelease-id-from-version/-/prerelease-id-from-version-4.0.0.tgz#c7e0676fcee1950d85630e108eddecdd5b48c916"
+  integrity sha512-GQqguzETdsYRxOSmdFZ6zDBXDErIETWOqomLERRY54f4p+tk4aJjoVdd9xKwehC9TBfIFvlRbL1V9uQGHh1opg==
+  dependencies:
+    semver "^7.3.4"
+
 "@lerna/prerelease-id-from-version@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/prerelease-id-from-version/-/prerelease-id-from-version-5.0.0.tgz#3edb90ba9ceace97708d03ff9f650d177f973184"
   integrity sha512-bUZwyx6evRn2RxogOQXaiYxRK1U/1Mh/KLO4n49wUhqb8S8Vb9aG3+7lLOgg4ZugHpj9KAlD3YGEKvwYQiWzhg==
-  dependencies:
-    semver "^7.3.4"
-
-"@lerna/prerelease-id-from-version@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/@lerna/prerelease-id-from-version/-/prerelease-id-from-version-5.1.0.tgz#c0737031a22f3a022c8eaf16926c09a3e766aa52"
-  integrity sha512-sNjthszV+VkBVHPfTVquxoUQ+p8mtBxPFFoLjK+Bq+57xdmV6VGhZ/QL8HTQ7H7y8KzWuqVNMl0Z7G6PZXON9g==
   dependencies:
     semver "^7.3.4"
 
@@ -2093,7 +2111,25 @@
     npmlog "^4.1.2"
     upath "^2.0.1"
 
-"@lerna/project@5.0.0", "@lerna/project@^5.0.0":
+"@lerna/project@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/project/-/project-4.0.0.tgz#ff84893935833533a74deff30c0e64ddb7f0ba6b"
+  integrity sha512-o0MlVbDkD5qRPkFKlBZsXZjoNTWPyuL58564nSfZJ6JYNmgAptnWPB2dQlAc7HWRZkmnC2fCkEdoU+jioPavbg==
+  dependencies:
+    "@lerna/package" "4.0.0"
+    "@lerna/validation-error" "4.0.0"
+    cosmiconfig "^7.0.0"
+    dedent "^0.7.0"
+    dot-prop "^6.0.1"
+    glob-parent "^5.1.1"
+    globby "^11.0.2"
+    load-json-file "^6.2.0"
+    npmlog "^4.1.2"
+    p-map "^4.0.0"
+    resolve-from "^5.0.0"
+    write-json-file "^4.3.0"
+
+"@lerna/project@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/project/-/project-5.0.0.tgz#31672891236696b2a70226388de0300c6086d75f"
   integrity sha512-+izHk7D/Di2b0s69AzKzAa/qBz32H9s67oN9aKntrjNylpY7iN5opU157l60Kh4TprYHU5bLisqzFLZsHHADGw==
@@ -2160,7 +2196,14 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/query-graph@5.0.0", "@lerna/query-graph@^5.0.0":
+"@lerna/query-graph@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/query-graph/-/query-graph-4.0.0.tgz#09dd1c819ac5ee3f38db23931143701f8a6eef63"
+  integrity sha512-YlP6yI3tM4WbBmL9GCmNDoeQyzcyg1e4W96y/PKMZa5GbyUvkS2+Jc2kwPD+5KcXou3wQZxSPzR3Te5OenaDdg==
+  dependencies:
+    "@lerna/package-graph" "4.0.0"
+
+"@lerna/query-graph@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/query-graph/-/query-graph-5.0.0.tgz#76c45f648915ef5c884c32c3d35daa3ebb53440b"
   integrity sha512-C/HXssBI8DVsZ/7IDW6JG9xhoHtWywi3L5oZB9q84MBYpQ9otUv6zbB+K4JCj7w9WHcuFWe2T/mc9wsaFuvB5g==
@@ -2256,17 +2299,17 @@
   resolved "https://registry.npmjs.org/@lerna/timer/-/timer-5.0.0.tgz#ab8fba29f90de21b0eb02406916269122deb2e41"
   integrity sha512-p2vevkpB6V/b0aR8VyMLDfg0Arp9VvMxcZOEu+IfZ9XKTtnbwjWPHKUOS34x/VGa6bnOIWjE046ixWymOs/fTw==
 
+"@lerna/validation-error@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/@lerna/validation-error/-/validation-error-4.0.0.tgz#af9d62fe8304eaa2eb9a6ba1394f9aa807026d35"
+  integrity sha512-1rBOM5/koiVWlRi3V6dB863E1YzJS8v41UtsHgMr6gB2ncJ2LsQtMKlJpi3voqcgh41H8UsPXR58RrrpPpufyw==
+  dependencies:
+    npmlog "^4.1.2"
+
 "@lerna/validation-error@5.0.0":
   version "5.0.0"
   resolved "https://registry.npmjs.org/@lerna/validation-error/-/validation-error-5.0.0.tgz#3d3557023e3eb2fd3d8fc9c89f7352a1b6e5bd3e"
   integrity sha512-fu/MhqRXiRQM2cirP/HoSkfwc5XtJ21G60WHv74RnanKBqWEZAUALWa3MQN2sYhVV/FpDW3GLkO008IW5NWzdg==
-  dependencies:
-    npmlog "^4.1.2"
-
-"@lerna/validation-error@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/@lerna/validation-error/-/validation-error-5.1.0.tgz#fd382ac483ca0a2af23884954802c7ce388eb0d1"
-  integrity sha512-Csogf+BzsMa8vxj51KcHIg3RVWr0FbIkRXXALRT5c/shUsV7NClV/cpz35r3DzBIXdh168LftHBW49wxPXX5uw==
   dependencies:
     npmlog "^4.1.2"
 
@@ -3241,36 +3284,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/lerna__package-graph@*":
-  version "4.0.1"
-  resolved "https://registry.npmmirror.com/@types/lerna__package-graph/-/lerna__package-graph-4.0.1.tgz#9c52bce9f1a5bfa94990380bbba6d6fcf5d55a12"
-  integrity sha512-B9Y0qWnrkJ4rfM4GZCh4+jpEegSZsSvIEM7tHyoNF9/dogQCCjABpk7XJZwPChRh8l3PRmBQYgkqEUs0dD9x/g==
-  dependencies:
-    "@types/lerna__package" "*"
-    "@types/npm-package-arg" "*"
-
-"@types/lerna__package@*":
-  version "4.0.2"
-  resolved "https://registry.npmmirror.com/@types/lerna__package/-/lerna__package-4.0.2.tgz#bd6414922e170f93df20362f79bdfafcee1106bb"
-  integrity sha512-q0xp+yzUVK4LNzBGDAy3bofMQniul3LSCh/F0r3vosqe6tVLCc2w2rTqeFoMZUT3gfPjJJ5u/SvdVGEN6zg0HQ==
-  dependencies:
-    "@types/npm-package-arg" "*"
-
-"@types/lerna__project@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmmirror.com/@types/lerna__project/-/lerna__project-4.0.0.tgz#beec3c5fe21b2afe42243ff9d996e16ad5834110"
-  integrity sha512-NOWoCSRQTWWPdYuqGP8wZ7E+oxUVlUGbxNUA+ZaZWKIs82Cimd5xOthi+iIuF6L73xSYhdBnR259XAPENIEtlQ==
-  dependencies:
-    "@types/lerna__package" "*"
-
-"@types/lerna__query-graph@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.npmmirror.com/@types/lerna__query-graph/-/lerna__query-graph-4.0.1.tgz#f013e244c97eae0e60882dc0c1a7513518969592"
-  integrity sha512-MY9v5PejFRmT0zIHrMQ+nual+tAoICZmhs/zDZPAsInOgD5UXlElQhPkL0n/XexUppZijAwGWnBrWTNvrAWeZg==
-  dependencies:
-    "@types/lerna__package" "*"
-    "@types/lerna__package-graph" "*"
-
 "@types/loader-utils@2.0.1":
   version "2.0.1"
   resolved "https://registry.npmjs.org/@types/loader-utils/-/loader-utils-2.0.1.tgz#4073425aca25762099823f7b922e86599c2b85ec"
@@ -3364,11 +3377,6 @@
   version "2.4.1"
   resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
   integrity sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==
-
-"@types/npm-package-arg@*":
-  version "6.1.1"
-  resolved "https://registry.npmmirror.com/@types/npm-package-arg/-/npm-package-arg-6.1.1.tgz#9e2d8adc04d39824a3d9f36f738010a3f7da3c1a"
-  integrity sha512-452/1Kp9IdM/oR10AyqAgZOxUt7eLbm+EMJ194L6oarMYdZNiFIFAOJ7IIr0OrZXTySgfHjJezh2oiyk2kc3ag==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"

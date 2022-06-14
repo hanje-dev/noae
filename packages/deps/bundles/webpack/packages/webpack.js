@@ -3,16 +3,18 @@ exports.isWebpack5 = false;
 exports.default = undefined;
 
 function assignWithGetter(source, webpack) {
-  Object.keys(webpack).forEach(key => {
+  Object.keys(webpack).forEach((key) => {
     Object.defineProperty(source, key, {
-      get() { return webpack[key]; }
+      get() {
+        return webpack[key];
+      },
     });
   });
 }
 
 let initializedWebpack5 = false;
 let initializedWebpack4 = false;
-let initFns = [];
+const initFns = [];
 let inited = false;
 exports.init = function (useWebpack5) {
   // allow init once
@@ -36,9 +38,9 @@ exports.init = function (useWebpack5) {
     if (!initializedWebpack4) for (const cb of initFns) cb();
     initializedWebpack4 = true;
   }
-}
+};
 
 exports.onWebpackInit = function (cb) {
   if (initializedWebpack5 || initializedWebpack4) cb();
   initFns.push(cb);
-}
+};

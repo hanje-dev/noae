@@ -1,6 +1,7 @@
+// @ts-ignore
 import { getPackagesSync } from '@lerna/project';
+// @ts-ignore
 import { QueryGraph } from '@lerna/query-graph';
-import { PackageGraphNode } from '@lerna/package-graph';
 // @ts-ignore
 import { filterPackages } from '@lerna/filter-packages';
 
@@ -28,22 +29,26 @@ export async function getLernaPackages(cwd: string, opts: Options = {}): Promise
 }
 
 export function getStreamPackages(pkgs: any[]): Promise<any[]> {
-  const graph = new QueryGraph(pkgs, {
-    graphType: 'allDependencies',
-    rejectCycles: true,
-  });
+  const graph = new QueryGraph(pkgs, 'allDependencies', true);
+
   return new Promise((resolve) => {
     const returnValues: any[] = [];
-    const queueNextAvailablePackages = () => {
-      graph.getAvailablePackages().forEach((pkg) => {
-        graph.markAsTaken(pkg.name);
-        Promise.resolve(pkg)
-          .then((value) => returnValues.push(value))
-          .then(() => graph.markAsDone(new PackageGraphNode(pkg)))
-          .then(() => queueNextAvailablePackages());
-      });
-    };
+
+    const queueNextAvailablePackages = () =>
+      graph
+        .getAvailablePackages()
+        // @ts-ignore
+        .forEach(({ pkg, name }) => {
+          graph.markAsTaken(name);
+
+          Promise.resolve(pkg)
+            .then((value) => returnValues.push(value))
+            .then(() => graph.markAsDone(pkg))
+            .then(() => queueNextAvailablePackages());
+        });
+
     queueNextAvailablePackages();
+
     setTimeout(() => {
       resolve(returnValues);
     }, 0);

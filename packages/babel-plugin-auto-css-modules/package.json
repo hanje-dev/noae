@@ -31,7 +31,6 @@
     "@noaejs/utils": "^1.1.12"
   },
   "devDependencies": {
-    "@noaejs/deps": "^1.1.12",
     "@noaejs/noae-build": "^1.1.12"
   }
 }
