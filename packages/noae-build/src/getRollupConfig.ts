@@ -224,7 +224,7 @@ export default function (opts: IGetRollupConfigOpts): RollupOptions[] {
   switch (type) {
     case 'esm':
       const output: Record<string, any> = {
-        dir: join(cwd, `${(esm && (esm as any).dir) || 'dist'} `),
+        dir: join(cwd, `${(esm && (esm as any).dir) || 'dist'}`),
         entryFileNames: `${(esm && (esm as any).file) || `${name}.esm`}.js`,
       };
       return [

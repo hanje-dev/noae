@@ -1,0 +1,45 @@
+{
+  "name": "@noaejs/runtime",
+  "version": "1.1.12",
+  "description": "> TODO: description",
+  "author": "hanje <jerryhiian@gmail.com>",
+  "homepage": "https://github.com/hanje-dev/noae#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanje-dev/noae.git"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/noae-build"
+  },
+  "bugs": {
+    "url": "https://github.com/hanje-dev/noae/issues"
+  },
+  "dependencies": {
+    "@types/react-router": "5.1.12",
+    "@types/react-router-dom": "5.1.7",
+    "history-with-query": "4.10.4",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "use-subscription": "1.5.1"
+  },
+  "devDependencies": {
+    "@noaejs/noae-build": "^1.1.12"
+  },
+  "peerDependencies": {
+    "react": "16.x || 17.x"
+  },
+  "module": "dist/index.esm.js"
+}

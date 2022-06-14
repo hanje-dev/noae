@@ -62,7 +62,7 @@ export interface ParserOptions {
    * of ES6 import or export statements.
    * Files with ES6 imports and exports are considered "module" and are otherwise "script".
    */
-  sourceType?: "script" | "module" | "unambiguous";
+  sourceType?: 'script' | 'module' | 'unambiguous';
 
   /**
    * Correlate output AST nodes with their source filename.
@@ -108,61 +108,61 @@ export interface ParserOptions {
 }
 
 export type ParserPlugin =
-  | "asyncDoExpressions"
-  | "asyncGenerators"
-  | "bigInt"
-  | "classPrivateMethods"
-  | "classPrivateProperties"
-  | "classProperties"
-  | "classStaticBlock"
-  | "decimal"
-  | "decorators"
-  | "decorators-legacy"
-  | "doExpressions"
-  | "dynamicImport"
-  | "estree"
-  | "exportDefaultFrom"
-  | "exportNamespaceFrom" // deprecated
-  | "flow"
-  | "flowComments"
-  | "functionBind"
-  | "functionSent"
-  | "importMeta"
-  | "jsx"
-  | "logicalAssignment"
-  | "importAssertions"
-  | "moduleStringNames"
-  | "nullishCoalescingOperator"
-  | "numericSeparator"
-  | "objectRestSpread"
-  | "optionalCatchBinding"
-  | "optionalChaining"
-  | "partialApplication"
-  | "pipelineOperator"
-  | "placeholders"
-  | "privateIn"
-  | "throwExpressions"
-  | "topLevelAwait"
-  | "typescript"
-  | "v8intrinsic"
+  | 'asyncDoExpressions'
+  | 'asyncGenerators'
+  | 'bigInt'
+  | 'classPrivateMethods'
+  | 'classPrivateProperties'
+  | 'classProperties'
+  | 'classStaticBlock'
+  | 'decimal'
+  | 'decorators'
+  | 'decorators-legacy'
+  | 'doExpressions'
+  | 'dynamicImport'
+  | 'estree'
+  | 'exportDefaultFrom'
+  | 'exportNamespaceFrom' // deprecated
+  | 'flow'
+  | 'flowComments'
+  | 'functionBind'
+  | 'functionSent'
+  | 'importMeta'
+  | 'jsx'
+  | 'logicalAssignment'
+  | 'importAssertions'
+  | 'moduleStringNames'
+  | 'nullishCoalescingOperator'
+  | 'numericSeparator'
+  | 'objectRestSpread'
+  | 'optionalCatchBinding'
+  | 'optionalChaining'
+  | 'partialApplication'
+  | 'pipelineOperator'
+  | 'placeholders'
+  | 'privateIn'
+  | 'throwExpressions'
+  | 'topLevelAwait'
+  | 'typescript'
+  | 'v8intrinsic'
   | ParserPluginWithOptions;
 
 export type ParserPluginWithOptions =
-  | ["decorators", DecoratorsPluginOptions]
-  | ["pipelineOperator", PipelineOperatorPluginOptions]
-  | ["recordAndTuple", RecordAndTuplePluginOptions]
-  | ["flow", FlowPluginOptions];
+  | ['decorators', DecoratorsPluginOptions]
+  | ['pipelineOperator', PipelineOperatorPluginOptions]
+  | ['recordAndTuple', RecordAndTuplePluginOptions]
+  | ['flow', FlowPluginOptions];
 
 export interface DecoratorsPluginOptions {
   decoratorsBeforeExport?: boolean;
 }
 
 export interface PipelineOperatorPluginOptions {
-  proposal: "fsharp" | "minimal" | "smart";
+  proposal: 'fsharp' | 'minimal' | 'smart';
 }
 
 export interface RecordAndTuplePluginOptions {
-  syntaxType: "bar" | "hash";
+  syntaxType: 'bar' | 'hash';
 }
 
 export interface FlowPluginOptions {

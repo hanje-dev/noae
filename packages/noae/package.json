@@ -17,7 +17,16 @@
     "build": "./node_modules/.bin/noae-build"
   },
   "dependencies": {
-    "@babel/core": "^7.18.2"
+    "@noaejs/bundler-webpack": "^1.1.12",
+    "@noaejs/core": "^1.1.12",
+    "@noaejs/deps": "^1.1.12",
+    "@noaejs/preset-built-in": "^1.1.12",
+    "@noaejs/runtime": "^1.1.12",
+    "@noaejs/types": "^1.1.12",
+    "@noaejs/utils": "^1.1.12",
+    "react": "16.x",
+    "react-dom": "16.x",
+    "v8-compile-cache": "2.3.0"
   },
   "devDependencies": {
     "@noaejs/noae-build": "^1.1.12"

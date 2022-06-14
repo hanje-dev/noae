@@ -10,91 +10,92 @@
 import * as t from '../types/lib/index-legacy';
 
 export interface GeneratorOptions {
-    /**
-     * Optional string to add as a block comment at the start of the output file.
-     */
-    auxiliaryCommentBefore?: string | undefined;
+  /**
+   * Optional string to add as a block comment at the start of the output file.
+   */
+  auxiliaryCommentBefore?: string | undefined;
 
-    /**
-     * Optional string to add as a block comment at the end of the output file.
-     */
-    auxiliaryCommentAfter?: string | undefined;
+  /**
+   * Optional string to add as a block comment at the end of the output file.
+   */
+  auxiliaryCommentAfter?: string | undefined;
 
-    /**
-     * Function that takes a comment (as a string) and returns true if the comment should be included in the output.
-     * By default, comments are included if `opts.comments` is `true` or if `opts.minifed` is `false` and the comment
-     * contains `@preserve` or `@license`.
-     */
-    shouldPrintComment?(comment: string): boolean;
+  /**
+   * Function that takes a comment (as a string) and returns true if the comment should be included in the output.
+   * By default, comments are included if `opts.comments` is `true` or if `opts.minifed` is `false` and the comment
+   * contains `@preserve` or `@license`.
+   */
+  shouldPrintComment?(comment: string): boolean;
 
-    /**
-     * Attempt to use the same line numbers in the output code as in the source code (helps preserve stack traces).
-     * Defaults to `false`.
-     */
-    retainLines?: boolean | undefined;
+  /**
+   * Attempt to use the same line numbers in the output code as in the source code (helps preserve stack traces).
+   * Defaults to `false`.
+   */
+  retainLines?: boolean | undefined;
 
-    /**
-     * Retain parens around function expressions (could be used to change engine parsing behavior)
-     * Defaults to `false`.
-     */
-    retainFunctionParens?: boolean | undefined;
+  /**
+   * Retain parens around function expressions (could be used to change engine parsing behavior)
+   * Defaults to `false`.
+   */
+  retainFunctionParens?: boolean | undefined;
 
-    /**
-     * Should comments be included in output? Defaults to `true`.
-     */
-    comments?: boolean | undefined;
+  /**
+   * Should comments be included in output? Defaults to `true`.
+   */
+  comments?: boolean | undefined;
 
-    /**
-     * Set to true to avoid adding whitespace for formatting. Defaults to the value of `opts.minified`.
-     */
-    compact?: boolean | 'auto' | undefined;
+  /**
+   * Set to true to avoid adding whitespace for formatting. Defaults to the value of `opts.minified`.
+   */
+  compact?: boolean | 'auto' | undefined;
 
-    /**
-     * Should the output be minified. Defaults to `false`.
-     */
-    minified?: boolean | undefined;
+  /**
+   * Should the output be minified. Defaults to `false`.
+   */
+  minified?: boolean | undefined;
 
-    /**
-     * Set to true to reduce whitespace (but not as much as opts.compact). Defaults to `false`.
-     */
-    concise?: boolean | undefined;
+  /**
+   * Set to true to reduce whitespace (but not as much as opts.compact). Defaults to `false`.
+   */
+  concise?: boolean | undefined;
 
-    /**
-     * Used in warning messages
-     */
-    filename?: string | undefined;
+  /**
+   * Used in warning messages
+   */
+  filename?: string | undefined;
 
-    /**
-     * Enable generating source maps. Defaults to `false`.
-     */
-    sourceMaps?: boolean | undefined;
+  /**
+   * Enable generating source maps. Defaults to `false`.
+   */
+  sourceMaps?: boolean | undefined;
 
-    /**
-     * A root for all relative URLs in the source map.
-     */
-    sourceRoot?: string | undefined;
+  /**
+   * A root for all relative URLs in the source map.
+   */
+  sourceRoot?: string | undefined;
 
-    /**
-     * The filename for the source code (i.e. the code in the `code` argument).
-     * This will only be used if `code` is a string.
-     */
-    sourceFileName?: string | undefined;
+  /**
+   * The filename for the source code (i.e. the code in the `code` argument).
+   * This will only be used if `code` is a string.
+   */
+  sourceFileName?: string | undefined;
 
-    /**
-     * Set to true to run jsesc with "json": true to print "\u00A9" vs. "©";
-     */
-    jsonCompatibleStrings?: boolean | undefined;
+  /**
+   * Set to true to run jsesc with "json": true to print "\u00A9" vs. "©";
+   */
+  jsonCompatibleStrings?: boolean | undefined;
 
-    /**
-     * Set to true to enable support for experimental decorators syntax before module exports.
-     * Defaults to `false`.
-     */
-    decoratorsBeforeExport?: boolean | undefined;
+  /**
+   * Set to true to enable support for experimental decorators syntax before module exports.
+   * Defaults to `false`.
+   */
+  decoratorsBeforeExport?: boolean | undefined;
 
-    /**
-     * Options for outputting jsesc representation.
-     */
-    jsescOption?: {
+  /**
+   * Options for outputting jsesc representation.
+   */
+  jsescOption?:
+    | {
         /**
          * The default value for the quotes option is 'single'. This means that any occurrences of ' in the input
          * string are escaped as \', so that the output can be used in a string literal wrapped in single quotes.
@@ -176,12 +177,14 @@ export interface GeneratorOptions {
          * numbers option) in the output are in lowercase.
          */
         lowercaseHex?: boolean | undefined;
-    } | undefined;
+      }
+    | undefined;
 }
 
 export class CodeGenerator {
-    constructor(ast: t.Node, opts?: GeneratorOptions, code?: string);
-    generate(): GeneratorResult;
+  constructor(ast: t.Node, opts?: GeneratorOptions, code?: string);
+
+  generate(): GeneratorResult;
 }
 
 /**
@@ -192,20 +195,20 @@ export class CodeGenerator {
  * @returns - an object containing the output code and source map.
  */
 export default function generate(
-    ast: t.Node,
-    opts?: GeneratorOptions,
-    code?: string | { [filename: string]: string },
+  ast: t.Node,
+  opts?: GeneratorOptions,
+  code?: string | { [filename: string]: string }
 ): GeneratorResult;
 
 export interface GeneratorResult {
-    code: string;
-    map: {
-        version: number;
-        sources: string[];
-        names: string[];
-        sourceRoot?: string | undefined;
-        sourcesContent?: string[] | undefined;
-        mappings: string;
-        file: string;
-    } | null;
+  code: string;
+  map: {
+    version: number;
+    sources: string[];
+    names: string[];
+    sourceRoot?: string | undefined;
+    sourcesContent?: string[] | undefined;
+    mappings: string;
+    file: string;
+  } | null;
 }

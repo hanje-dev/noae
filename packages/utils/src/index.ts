@@ -21,9 +21,8 @@ import semver from '@noaejs/deps/compiled/semver';
 import signale from '@noaejs/deps/compiled/signale';
 import yargs from '@noaejs/deps/compiled/yargs';
 import yParser from '@noaejs/deps/compiled/yargs-parser';
-// TODO: uncomment
-// import * as chokidar from '@umijs/deps/reexported/chokidar';
-// import clipboardy from '@umijs/deps/reexported/clipboardy';
+import * as chokidar from '@noaejs/deps/reexported/chokidar';
+import clipboardy from '@noaejs/deps/reexported/clipboardy';
 
 export { default as BabelRegister } from './BabelRegister/BabelRegister';
 export { default as cheerio } from './cheerio/cheerio';
@@ -45,8 +44,8 @@ export { spawn };
 export { semver };
 export { address };
 export { chalk };
-// export { clipboardy };
-// export { chokidar };
+export { clipboardy };
+export { chokidar };
 export { createDebug, Debugger };
 export { deepmerge };
 export { execa };

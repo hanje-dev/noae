@@ -4,7 +4,7 @@ import color from '@noaejs/deps/compiled/color';
 const ratio = 0.618033988749895;
 let hue = Math.random();
 
-export default function (saturation: number = 0.5, value: number = 0.95) {
+export default function (saturation = 0.5, value = 0.95) {
   hue += ratio;
   hue %= 1;
 

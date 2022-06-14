@@ -1,0 +1,4 @@
+packages/**/lib
+packages/**/template-vue
+examples/dist
+node_modules

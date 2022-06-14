@@ -67,6 +67,24 @@ declare function webpack(options: webpack.Configuration[]): webpack.MultiCompile
 declare namespace webpack {
     /** Webpack package version. */
     const version: string | undefined;
+    
+    function webpack(
+      options:
+        | webpack.Configuration
+        | webpack.ConfigurationFactory,
+      handler: webpack.Compiler.Handler,
+    ): webpack.Compiler.Watching | webpack.Compiler;
+    function webpack(options?: webpack.Configuration): webpack.Compiler;
+    function webpack(
+      options:
+        | webpack.Configuration[]
+        | webpack.MultiConfigurationFactory,
+      handler: webpack.MultiCompiler.Handler
+    ): webpack.MultiWatching | webpack.MultiCompiler;
+    function webpack(options: webpack.Configuration[]): webpack.MultiCompiler;
+
+    function init(isWebpack5?: boolean): void;
+    function onWebpackInit(cb: Function): void;
 
     interface Configuration {
         /** Enable production optimizations or development hints. */

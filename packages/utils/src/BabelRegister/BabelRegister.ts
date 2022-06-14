@@ -1,12 +1,10 @@
 import { existsSync, realpathSync } from 'fs';
-import { createDebug, lodash, winPath } from '../';
+import { createDebug, lodash, winPath } from '../index';
 
-const debug = createDebug('umi:utils:BabelRegister');
+const debug = createDebug('noae:utils:BabelRegister');
 
 export default class BabelRegister {
   only: Record<string, string[]> = {};
-
-  constructor() {}
 
   setOnlyMap({ key, value }: { key: string; value: string[] }) {
     debug(`set ${key} of only map:`);
@@ -24,8 +22,8 @@ export default class BabelRegister {
         .map(winPath)
         .map((path) => (existsSync(path) ? realpathSync(path) : path))
     );
-    require('@umijs/deps/compiled/babel/register')({
-      presets: [require.resolve('@umijs/babel-preset-umi/node')],
+    require('@noaejs/deps/compiled/babel/register')({
+      presets: [require.resolve('@noaejs/babel-preset-noae/node')],
       ignore: [/node_modules/],
       only,
       extensions: ['.jsx', '.js', '.ts', '.tsx'],

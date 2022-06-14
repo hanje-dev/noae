@@ -9,7 +9,9 @@ interface IOpts {
 
 class Generator {
   cwd: string;
+
   args: yargs.Arguments;
+
   prompts: any;
 
   constructor({ cwd, args }: IOpts) {

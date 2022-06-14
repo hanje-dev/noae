@@ -34,6 +34,14 @@ function pluginProposalClassProperties() {
   return require('@babel/plugin-proposal-class-properties');
 }
 
+function pluginProposalPrivateMethods() {
+  return require('@babel/plugin-proposal-private-methods');
+}
+
+function pluginProposalPrivatePropertyInObject() {
+  return require('@babel/plugin-proposal-private-property-in-object');
+}
+
 function pluginProposalDecorators() {
   return require('@babel/plugin-proposal-decorators');
 }
@@ -86,13 +94,13 @@ function pluginSvgrWebpack() {
   return require('@svgr/webpack');
 }
 
-/* function pluginAutoCSSModules() {
-  return require('@umijs/babel-plugin-auto-css-modules');
+function pluginAutoCSSModules() {
+  return require('@noaejs/babel-plugin-auto-css-modules');
 }
 
 function pluginImportToAwaitRequire() {
-  return require('@umijs/babel-plugin-import-to-await-require');
-} */
+  return require('@noaejs/babel-plugin-import-to-await-require');
+}
 
 function pluginDynamicImportNode() {
   return require('babel-plugin-dynamic-import-node');
@@ -136,11 +144,12 @@ module.exports = {
   parser,
   template,
   generator,
-  parser,
   register,
   traverse,
   types,
   pluginProposalClassProperties,
+  pluginProposalPrivateMethods,
+  pluginProposalPrivatePropertyInObject,
   pluginProposalDecorators,
   pluginProposalDoExpressions,
   pluginProposalExportDefaultFrom,
@@ -157,8 +166,8 @@ module.exports = {
   presetReact,
   presetTypescript,
   pluginSvgrWebpack,
-  // pluginAutoCSSModules,
-  // pluginImportToAwaitRequire,
+  pluginAutoCSSModules,
+  pluginImportToAwaitRequire,
   pluginDynamicImportNode,
   pluginImport,
   pluginNamedAssetImport,

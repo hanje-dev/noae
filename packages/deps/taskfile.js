@@ -18,7 +18,7 @@ const externals = {
   // umi 的 bundle 有问题，会自动包含 react，这部分没必要包含进来
   react: 'react',
   // @umijs/babel-plugin-import-to-await-require 依赖 @umijs/utils，后续考虑删除依赖
-  // '@umijs/utils': '@umijs/utils',
+  '@umijs/utils': '@umijs/utils',
 
   // webpack
   'node-libs-browser': 'node-libs-browser',
@@ -829,4 +829,20 @@ export async function ncc_webpack_bundle_packages(task, opts) {
 
 export default async function (task) {
   await task.clear('dist');
+}
+
+export async function dfns(task) {
+  await task.parallel(['dfns_lodash', 'dfns_joi2types', 'dfns_babel']);
+}
+
+export async function dfns_babel(task) {
+  await task.source('dfns/babel/**/*').target('compiled/babel/');
+}
+
+export async function dfns_lodash(task) {
+  await task.source('dfns/lodash/**/*').target('compiled/lodash/');
+}
+
+export async function dfns_joi2types(task) {
+  await task.source('dfns/joi2types/**/*').target('compiled/joi2types/');
 }
