@@ -31981,7 +31981,6 @@ module.exports = __nccwpck_require__(5712).YAML
 /***/ 3301:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-
 module.exports = {
   entry() {
     return __nccwpck_require__(8685);
@@ -31991,8 +31990,8 @@ module.exports = {
   },
   EsLintReporterRpcService() {
     return __nccwpck_require__(4073);
-  }
-}
+  },
+};
 
 
 /***/ }),

@@ -1,1 +1,1 @@
-export default {};
+export { renderClient } from './renderClient/renderClient';

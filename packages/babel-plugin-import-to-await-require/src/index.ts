@@ -52,7 +52,7 @@ export function specifiersToProperties(specifiers: any[]) {
 }
 
 const RE_NODE_MODULES = /node_modules/;
-const RE_UMI_LOCAL_DEV = /umi\/packages\//;
+const RE_NOAE_LOCAL_DEV = /noae\/packages\//;
 
 function getAlias(opts: { path: string; webpackAlias: IAlias }) {
   for (const key of Object.keys(opts.webpackAlias)) {
@@ -127,11 +127,11 @@ function isMatchLib(
   webpackExternals: IExternals
 ) {
   if (matchAll) {
-    if (path === 'umi' || path === 'dumi' || path === '@alipay/bigfish') return false;
+    if (path === 'noae' || path === 'dumi' || path === '@alipay/bigfish') return false;
     if (path.startsWith(`${remoteName}/`)) return false;
 
     // don't match dynamic path
-    // e.g. @umijs/deps/compiled/babel/svgr-webpack.js?-svgo,+titleProp,+ref!./umi.svg
+    // e.g. @noaejs/deps/compiled/babel/svgr-webpack.js?-svgo,+titleProp,+ref!./noae.svg
     if (winPath(path).includes('babel/svgr-webpack')) return false;
 
     // don't match webpack loader
@@ -148,13 +148,13 @@ function isMatchLib(
     }
 
     if (isAbsolute(path)) {
-      return RE_NODE_MODULES.test(path) || RE_UMI_LOCAL_DEV.test(path);
+      return RE_NODE_MODULES.test(path) || RE_NOAE_LOCAL_DEV.test(path);
     } else if (path.charAt(0) === '.') {
       return false;
     } else {
       const aliasPath = getAlias({ path, webpackAlias });
       if (aliasPath) {
-        return RE_NODE_MODULES.test(aliasPath) || RE_UMI_LOCAL_DEV.test(aliasPath);
+        return RE_NODE_MODULES.test(aliasPath) || RE_NOAE_LOCAL_DEV.test(aliasPath);
       }
       return true;
     }

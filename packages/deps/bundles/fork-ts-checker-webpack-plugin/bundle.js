@@ -1,4 +1,3 @@
-
 module.exports = {
   entry() {
     return require('fork-ts-checker-webpack-plugin');
@@ -8,5 +7,5 @@ module.exports = {
   },
   EsLintReporterRpcService() {
     return require('fork-ts-checker-webpack-plugin/lib/eslint-reporter/reporter/EsLintReporterRpcService');
-  }
-}
+  },
+};

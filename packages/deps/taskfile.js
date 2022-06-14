@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { relative, basename, resolve } = require('path');
+const { relative, basename, resolve, join } = require('path');
 const { Module } = require('module');
 
 const m = new Module(resolve(__dirname, 'bundles', '_'));
@@ -18,7 +18,7 @@ const externals = {
   // umi 的 bundle 有问题，会自动包含 react，这部分没必要包含进来
   react: 'react',
   // @umijs/babel-plugin-import-to-await-require 依赖 @umijs/utils，后续考虑删除依赖
-  '@umijs/utils': '@umijs/utils',
+  '@noaejs/utils': '@noaejs/utils',
 
   // webpack
   'node-libs-browser': 'node-libs-browser',
@@ -578,15 +578,13 @@ export async function ncc_yargs_parser(task, opts) {
     .target('compiled/yargs-parser');
 }
 
-/* externals['umi-webpack-bundle-analyzer'] = '@noaejs/deps/compiled/umi-webpack-bundle-analyzer';
+externals['umi-webpack-bundle-analyzer'] = '@noaejs/deps/compiled/umi-webpack-bundle-analyzer';
 export async function ncc_umi_webpack_bundle_analyzer(task, opts) {
   await task
-    .source(
-      opts.src || relative(__dirname, require.resolve('umi-webpack-bundle-analyzer'))
-    )
+    .source(opts.src || relative(__dirname, require.resolve('umi-webpack-bundle-analyzer')))
     .ncc({ packageName: 'umi-webpack-bundle-analyzer', externals })
     .target('compiled/umi-webpack-bundle-analyzer');
-} */
+}
 
 externals['url-loader'] = '@noaejs/deps/compiled/url-loader';
 export async function ncc_url_loader(task, opts) {
@@ -636,13 +634,18 @@ export async function ncc_yargs(task, opts) {
     .target('compiled/yargs');
 }
 
-externals['zlib'] = '@noaejs/deps/compiled/zlib';
+/* externals['zlib'] = '@noaejs/deps/compiled/zlib';
 export async function ncc_zlib(task, opts) {
+  fs.writeFileSync(
+    join(__dirname, 'zlib_opts'),
+    relative(__dirname, require.resolve('zlib')),
+    'utf-8'
+  );
   await task
     .source(opts.src || relative(__dirname, require.resolve('zlib')))
     .ncc({ packageName: 'zlib', externals })
     .target('compiled/zlib');
-}
+} */
 
 // externals['webpack-sources'] = '@noaejs/deps/compiled/webpack-sources';
 export async function ncc_webpack_sources(task, opts) {
@@ -801,7 +804,7 @@ export async function ncc(task) {
     'ncc_stats_webpack_plugin',
     'ncc_style_loader',
     'ncc_tapable',
-    // 'ncc_umi_webpack_bundle_analyzer',
+    'ncc_umi_webpack_bundle_analyzer',
     'ncc_url_loader',
     'ncc_webpack_chain',
     'ncc_webpack_dev_middleware', // webpack-dev-middleware
@@ -809,7 +812,7 @@ export async function ncc(task) {
     'ncc_webpackbar',
     'ncc_yargs_parser',
     'ncc_yargs',
-    'ncc_zlib',
+    // 'ncc_zlib',
     'ncc_webpack_sources',
     'ncc_webpack_sources2',
     'ncc_webpack_bundle4',

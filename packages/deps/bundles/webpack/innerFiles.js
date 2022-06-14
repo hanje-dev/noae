@@ -49,7 +49,7 @@ exports.getBundle5Map = function () {
 exports.getExternalsMap = function () {
   return files.reduce((memo, file) => {
     const fileName = getFileName(file);
-    memo[file] = `@umijs/deps/compiled/webpack/${fileName}`;
+    memo[file] = `@noaejs/deps/compiled/webpack/${fileName}`;
     return memo;
   }, {});
 }

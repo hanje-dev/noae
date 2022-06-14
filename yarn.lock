@@ -4544,6 +4544,11 @@ async@^3.2.3:
   resolved "https://registry.npmjs.org/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
   integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
 
+async_hooks@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/async_hooks/-/async_hooks-1.0.0.tgz#815f5e861fe73f64eb29fd942c32e95c8064052f"
+  integrity sha512-t4BSJgx48V3e7U6Ll3/WOUNmxIRPzmPdxVfgbyzcnRItEnn4iKp4F//b0sV3L9hzbdr5qxWdNWzOF7t+rjYSfA==
+
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -4754,6 +4759,11 @@ binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
+
+bindings@1.2.x:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz#14ad6113812d2d37d72e67b4cacb4bb726505f11"
+  integrity sha512-u4cBQNepWxYA55FunZSM7wMi55yQaN0otnhhilNoWHq0MfOfJeQx0v0mRRpolGOExPjZcl6FtB0BB8Xkb88F0g==
 
 bindings@^1.5.0:
   version "1.5.0"
@@ -4975,6 +4985,14 @@ buffer@^4.3.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
     isarray "^1.0.0"
+
+bufferutil@1.1.x:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/bufferutil/-/bufferutil-1.1.0.tgz#3f96be77a7f8652ff69ef29f1cabc8b89f7fd972"
+  integrity sha512-bttEVtkre4VYrZH+ciatjApTuac7jLMQXVXzM/ymw82WFREdOrJO496C4Bkh0/FfYoBUSOFaAYF32a5Q8dyiLw==
+  dependencies:
+    bindings "1.2.x"
+    nan "1.8.x"
 
 builtin-modules@^3.0.0:
   version "3.3.0"
@@ -6857,6 +6875,13 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
+
+endpoint@0.4.x:
+  version "0.4.5"
+  resolved "https://registry.npmjs.org/endpoint/-/endpoint-0.4.5.tgz#8a32db66ad94c3161d279ed1ab4ffb6c4101b79a"
+  integrity sha512-oA2ALUF+d4Y0I8/WMV/0BuAZGHxfIdAygr9ZXP4rfzmp5zpYZmYKHKAbqRQnrE1YGdPhVg4D24CQkyx2qYEoHg==
+  dependencies:
+    inherits "^2.0.1"
 
 enhanced-resolve@^4.5.0:
   version "4.5.0"
@@ -8930,6 +8955,14 @@ inquirer@^7.0.0, inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
+inspector@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/inspector/-/inspector-0.5.0.tgz#a26465dcb58858352cf42977e691efacea88f501"
+  integrity sha512-qs91uK2uL3Bjcl+zSe088cR2Jh8TWgjifv54jsIvr593q92rUPFaTo+WZGvoyMgsRZWusZQR6JJmNA913QSZ+A==
+  dependencies:
+    endpoint "0.4.x"
+    ws "0.7.x"
+
 internal-slot@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/internal-slot/-/internal-slot-1.0.3.tgz#7347e307deeea2faac2ac6205d4bc7d34967f59c"
@@ -10800,6 +10833,11 @@ mz@^2.7.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
+nan@1.8.x:
+  version "1.8.4"
+  resolved "https://registry.npmjs.org/nan/-/nan-1.8.4.tgz#3c76b5382eab33e44b758d2813ca9d92e9342f34"
+  integrity sha512-609zQ1h3ApgH/94qmbbEklSrjcYYXCHnsWk4MAojq4OUk3tidhDYhPaMasMFKsZPZ96r4eQA1hbR2W4H7/77XA==
+
 nan@^2.12.1:
   version "2.16.0"
   resolved "https://registry.npmjs.org/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
@@ -11424,6 +11462,11 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
+
+options@>=0.0.5:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/options/-/options-0.0.6.tgz#ec22d312806bb53e731773e7cdaefcf1c643128f"
+  integrity sha512-bOj3L1ypm++N+n7CEbbe473A414AB7z+amKYshRb//iuL3MpdDCLhPnw6aVTdKB9g5ZRVHIEp8eUln6L2NUStg==
 
 ordered-read-streams@^1.0.0:
   version "1.0.1"
@@ -13403,6 +13446,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+readline@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/readline/-/readline-1.3.0.tgz#c580d77ef2cfc8752b132498060dc9793a7ac01c"
+  integrity sha512-k2d6ACCkiNYz222Fs/iNze30rRJ1iIicW7JuX/7/cozvih6YCkFZH+J6mAFDVgv0dRBaAyr4jDqC95R2y4IADg==
+
 redent@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f"
@@ -15243,6 +15291,11 @@ uglify-js@^3.1.4:
   resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.16.0.tgz#b778ba0831ca102c1d8ecbdec2d2bdfcc7353190"
   integrity sha512-FEikl6bR30n0T3amyBh3LoiBdqHRy/f4H80+My34HOesOKyHfOsxAPAxOoqC0JUnC1amnO0IwkYC3sko51caSw==
 
+ultron@1.0.x:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
+  integrity sha512-QMpnpVtYaWEeY+MwKDN/UdKlE/LsFZXM5lO1u7GaZzNgmIbGixHEmVMIKT+vqYOALu3m5GYQy9kz4Xu4IVn7Ow==
+
 umi-webpack-bundle-analyzer@3.6.2:
   version "3.6.2"
   resolved "https://registry.npmjs.org/umi-webpack-bundle-analyzer/-/umi-webpack-bundle-analyzer-3.6.2.tgz#cf2a4be5b6a62ab0e4046f00193d17395851d3d3"
@@ -15459,6 +15512,14 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.npmjs.org/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+utf-8-validate@1.1.x:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/utf-8-validate/-/utf-8-validate-1.1.0.tgz#521a6bb2189d0b307ddc5b79c3c95a5fd8085db4"
+  integrity sha512-Qsgu1u2akdyOneurUEVf/tXhkqBQMoE3x0GY5+P7ayPHvVzTqOkkgBhtl26wm6ap10Amhwy0jIhPwMGywx76QQ==
+  dependencies:
+    bindings "1.2.x"
+    nan "1.8.x"
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
@@ -16005,6 +16066,17 @@ write-pkg@^4.0.0:
     sort-keys "^2.0.0"
     type-fest "^0.4.1"
     write-json-file "^3.2.0"
+
+ws@0.7.x:
+  version "0.7.2"
+  resolved "https://registry.npmjs.org/ws/-/ws-0.7.2.tgz#438c560bdfa2b7da3dd5b6b46ed61325c24699d8"
+  integrity sha512-8mJ1Ku743qD/PKmO9Dg+y7BXTwzUgKdXguecfIyOVHFmez4JMqMF+V+M684btmQXHlwzyrJqRl3NYDltGDf6CQ==
+  dependencies:
+    options ">=0.0.5"
+    ultron "1.0.x"
+  optionalDependencies:
+    bufferutil "1.1.x"
+    utf-8-validate "1.1.x"
 
 ws@^7.3.1:
   version "7.5.8"

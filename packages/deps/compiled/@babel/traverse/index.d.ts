@@ -10,7 +10,7 @@
 //                 Daniel Tschinder <https://github.com/danez>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import * as t from '../types/lib/index-legacy';
+import * as t from './@babel/types';
 export import Node = t.Node;
 
 declare const traverse: {

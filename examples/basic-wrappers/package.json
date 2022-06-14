@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "basic-wrappers",
+  "version": "0.0.1",
+  "description": "basic-wrappers",
+  "scripts": {
+    "start": "./node_modules/.bin/noae dev"
+  },
+  "keywords": [
+    "umi",
+    "umi examples"
+  ],
+  "author": "hanje <jerryhiian@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "noae": "^1.1.12"
+  }
+}

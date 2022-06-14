@@ -8,8 +8,9 @@ import webpack, {
   SourceMapDevToolPlugin,
   javascript,
   version as webpackVersion,
-} from 'webpack';
-import RequestShortener from 'webpack/lib/RequestShortener';
+} from '@noaejs/deps/compiled/webpack';
+// import RequestShortener from 'webpack/lib/RequestShortener';
+import RequestShortener from '@noaejs/deps/compiled/webpack/RequestShortener';
 
 import serialize from '@noaejs/deps/compiled/serialize-javascript';
 import terserPackageJson from 'terser/package.json';

@@ -1,4 +1,4 @@
-/* const { Package } = require('dts-packer');
+const { Package } = require('dts-packer');
 
 const { readFileSync, writeFileSync } = require('fs');
 const { join } = require('path');
@@ -87,32 +87,3 @@ function dts({ name }) {
     name,
   });
 });
-
-
- */
-
-const fs = require('fs-extra');
-const path = require('path');
-
-const dirs = fs.readdirSync(path.join(__dirname, '../dfns'));
-
-if (dirs.length) {
-  dirs.forEach((item) => {
-    const target = path.join(__dirname, `../compiled/${item}`);
-    const dir = path.join(__dirname, `../dfns/${item}`);
-    const dirs = fs.readdirSync(dir);
-
-    if (dirs.length) {
-      dirs.forEach((source) => {
-        // 将源文件夹复制到目标
-        fs.copy(`${dir}/${source}`, target, function (err) {
-          if (err) {
-            console.log('An error occured while copying the folder.');
-            return console.error(err);
-          }
-          console.log('Copy completed!');
-        });
-      });
-    }
-  });
-}

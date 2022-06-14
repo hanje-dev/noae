@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "config-alias",
+  "version": "0.0.1",
+  "description": "config-alias",
+  "scripts": {
+    "start": "noae dev"
+  },
+  "keywords": [
+    "umi",
+    "umi examples",
+    "alias"
+  ],
+  "author": "hanje <jerryhiian@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "noae": "^1.1.12"
+  }
+}

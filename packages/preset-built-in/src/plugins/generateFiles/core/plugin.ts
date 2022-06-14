@@ -1,0 +1,66 @@
+import { IApi } from '@noaejs/types';
+import { getFile, winPath } from '@noaejs/utils';
+import { readFileSync } from 'fs';
+import { join, relative } from 'path';
+import { runtimePath } from '../constants';
+
+export default function (api: IApi) {
+  const {
+    paths,
+    utils: { Mustache },
+  } = api;
+
+  api.onGenerateFiles(async () => {
+    const validKeys = await api.applyPlugins({
+      key: 'addRuntimePluginKey',
+      type: api.ApplyPluginsType.add,
+      initialValue: [
+        'modifyClientRenderOpts',
+        'patchRoutes',
+        'rootContainer',
+        'render',
+        'onRouteChange',
+        '__mfsu',
+      ],
+    });
+
+    const appRuntimeFilePath = getFile({
+      base: paths.absSrcPath!,
+      fileNameWithoutExt: 'app',
+      type: 'javascript',
+    })?.path;
+    const plugins = await api.applyPlugins({
+      key: 'addRuntimePlugin',
+      type: api.ApplyPluginsType.add,
+      initialValue: appRuntimeFilePath
+        ? [api.utils.winPath(relative(join(api.paths.absTmpPath!, 'core'), appRuntimeFilePath))]
+        : [],
+    });
+
+    api.writeTmpFile({
+      path: 'core/plugin.ts',
+      content: Mustache.render(readFileSync(join(__dirname, 'plugin.tpl'), 'utf-8'), {
+        validKeys,
+        runtimePath,
+      }),
+    });
+    api.writeTmpFile({
+      path: 'core/pluginRegister.ts',
+      content: Mustache.render(readFileSync(join(__dirname, 'pluginRegister.tpl'), 'utf-8'), {
+        plugins: plugins.map((plugin: string, index: number) => {
+          return {
+            index,
+            path: winPath(plugin),
+          };
+        }),
+      }),
+    });
+  });
+
+  api.addNoaeExports(() => {
+    return {
+      specifiers: ['plugin'],
+      source: `./plugin`,
+    };
+  });
+}

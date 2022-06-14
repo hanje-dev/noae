@@ -1,6 +1,29 @@
-class Point {
-  constructor(public x: number, public y: number) {}
-}
+// @ts-ignore
+export * from '@@/core/noaeExports';
+export {
+  ApplyPluginsType,
+  createBrowserHistory,
+  createHashHistory,
+  createMemoryHistory,
+  dynamic,
+  isBrowser,
+  Link,
+  matchPath,
+  MemoryRouter,
+  NavLink,
+  Plugin,
+  Prompt,
+  Redirect,
+  Route,
+  Router,
+  StaticRouter,
+  Switch,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+  withRouter,
+  __RouterContext,
+} from '@noaejs/runtime';
 
-const p = new Point(1, 2);
-console.log(p);
+export type { MemoryHistory } from '@noaejs/runtime';

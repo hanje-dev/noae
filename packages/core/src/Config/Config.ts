@@ -20,7 +20,7 @@ import { getUserConfigWithKey, updateUserConfigWithKey } from './utils/configUti
 import isEqual from './utils/isEqual';
 import mergeDefault from './utils/mergeDefault';
 
-const debug = createDebug('umi:core:Config');
+const debug = createDebug('noae:core:Config');
 
 interface IChanged {
   key: string;
@@ -34,7 +34,7 @@ interface IOpts {
   configFiles?: string[];
 }
 
-const DEFAULT_CONFIG_FILES = ['.umirc.ts', '.umirc.js', 'config/config.ts', 'config/config.js'];
+const DEFAULT_CONFIG_FILES = ['.noaerc.ts', '.noaerc.js', 'config/config.ts', 'config/config.js'];
 
 // TODO:
 // 1. custom config file
@@ -139,8 +139,8 @@ export default class Config {
     // .local 和 .env 的配置必须有 configFile 才有效
     if (configFile) {
       let envConfigFile;
-      if (process.env.UMI_ENV) {
-        const envConfigFileName = this.addAffix(configFile, process.env.UMI_ENV);
+      if (process.env.NOAE_ENV) {
+        const envConfigFileName = this.addAffix(configFile, process.env.NOAE_ENV);
         const fileNameWithoutExt = envConfigFileName.replace(extname(envConfigFileName), '');
         envConfigFile = getFile({
           base: this.cwd,
@@ -149,7 +149,7 @@ export default class Config {
         })?.filename;
         if (!envConfigFile) {
           throw new Error(
-            `get user config failed, ${envConfigFile} does not exist, but process.env.UMI_ENV is set to ${process.env.UMI_ENV}.`
+            `get user config failed, ${envConfigFile} does not exist, but process.env.NOAE_ENV is set to ${process.env.NOAE_ENV}.`
           );
         }
       }
@@ -205,11 +205,11 @@ export default class Config {
   }
 
   getWatchFilesAndDirectories() {
-    const umiEnv = process.env.UMI_ENV;
+    const noaeEnv = process.env.NOAE_ENV;
     const configFiles = lodash.clone(this.configFiles);
     this.configFiles.forEach((f) => {
       if (this.localConfig) configFiles.push(this.addAffix(f, 'local'));
-      if (umiEnv) configFiles.push(this.addAffix(f, umiEnv));
+      if (noaeEnv) configFiles.push(this.addAffix(f, noaeEnv));
     });
 
     const configDir = winPath(join(this.cwd, 'config'));
