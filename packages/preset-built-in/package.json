@@ -55,9 +55,6 @@
     "regenerator-runtime": "0.13.5",
     "schema-utils": "^3.0.0"
   },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
-  },
   "peerDependencies": {
     "react": "16.x || 17.x"
   }

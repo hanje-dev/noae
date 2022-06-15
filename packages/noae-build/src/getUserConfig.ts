@@ -13,10 +13,10 @@ function testDefault(obj: any) {
 }
 
 export const CONFIG_FILES = [
-  '.noaerc.js',
-  '.noaerc.jsx',
-  '.noaerc.ts',
-  '.noaerc.tsx',
+  '.nbrc.js',
+  '.nbrc.jsx',
+  '.nbrc.ts',
+  '.nbrc.tsx',
   '.umirc.library.js',
   '.umirc.library.jsx',
   '.umirc.library.ts',

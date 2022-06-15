@@ -37,8 +37,5 @@
   "peerDependencies": {
     "react": "16.x || 17.x",
     "react-dom": "16.x || 17.x"
-  },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
   }
 }

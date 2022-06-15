@@ -3,8 +3,8 @@ import { dirname } from 'path';
 
 class Service extends CoreService {
   constructor(opts: IServiceOpts) {
-    process.env.Noae_VERSION = require('../package').version;
-    process.env.Noae_DIR = dirname(require.resolve('../package'));
+    process.env.NOAE_VERSION = require('../package').version;
+    process.env.NOAE_DIR = dirname(require.resolve('../package'));
 
     super({
       ...opts,

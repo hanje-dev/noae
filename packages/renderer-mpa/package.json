@@ -34,9 +34,6 @@
     "@types/react-dom": "^16.9.8",
     "@noaejs/runtime": "^1.1.12"
   },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
-  },
   "peerDependencies": {
     "react": "16.x || 17.x",
     "react-dom": "16.x || 17.x"

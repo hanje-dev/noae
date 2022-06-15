@@ -27,7 +27,6 @@
     "url": "git+https://github.com/hanje-dev/noae.git"
   },
   "scripts": {
-    "build": "./node_modules/.bin/noae-build",
     "bundleWebpackHotDevClient": "BABEL_CACHE=none COMPRESS=none ./bin/bundler-webpack.js build",
     "bundleHotModuleReplacement": "node scripts/bundleHotModuleReplacement.js"
   },
@@ -51,7 +50,6 @@
     "webpack-chain": "6.5.1"
   },
   "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12",
     "@types/sockjs-client": "1.5.0",
     "anymatch": "3.1.1",
     "react-error-overlay": "6.0.9",

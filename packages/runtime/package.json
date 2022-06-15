@@ -35,9 +35,6 @@
     "react-router-dom": "5.2.0",
     "use-subscription": "1.5.1"
   },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
-  },
   "peerDependencies": {
     "react": "16.x || 17.x"
   },

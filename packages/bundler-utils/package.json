@@ -31,8 +31,5 @@
     "@noaejs/babel-preset-noae": "^1.1.12",
     "@noaejs/types": "^1.1.12",
     "@noaejs/utils": "^1.1.12"
-  },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
   }
 }

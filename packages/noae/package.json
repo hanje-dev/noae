@@ -32,9 +32,6 @@
     "react-dom": "16.x",
     "v8-compile-cache": "2.3.0"
   },
-  "devDependencies": {
-    "@noaejs/noae-build": "^1.1.12"
-  },
   "bin": {
     "noae": "bin/noae.js"
   },
