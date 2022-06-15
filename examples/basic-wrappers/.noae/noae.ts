@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/hanje/frontend/project/noae/packages/runtime';
-import { renderClient } from '/Users/hanje/frontend/project/noae/packages/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/hanje/frontend/projects/noae/packages/runtime';
+import { renderClient } from '/Users/hanje/frontend/projects/noae/packages/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 
@@ -37,7 +37,7 @@ export default clientRender();
 
 
     window.g_noae = {
-      version: 'undefined',
+      version: '1.1.12',
     };
   
 
