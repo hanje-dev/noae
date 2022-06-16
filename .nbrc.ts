@@ -8,10 +8,12 @@ const tailPkgs = ['noae'];
 const otherPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg) && !tailPkgs.includes(pkg)
 );
+const pluginPkgs = readdirSync(join(__dirname, 'packages/plugins'));
 
 export default {
   target: 'node',
   cjs: { type: 'babel', lazy: true },
   disableTypeCheck: true,
-  pkgs: [...headPkgs, ...otherPkgs, ...tailPkgs],
+  // pkgs: [...headPkgs, ...otherPkgs, ...pluginPkgs, ...tailPkgs],
+  pkgs: [...pluginPkgs],
 };

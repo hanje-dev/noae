@@ -32,9 +32,8 @@ export function isPluginOrPreset(type: PluginType, name: string) {
   const re = RE[type];
   if (hasScope) {
     return re.test(name.split('/')[1]) || re.test(name);
-  } else {
-    return re.test(name);
   }
+  return re.test(name);
 }
 
 function getPluginsOrPresets(type: PluginType, opts: IOpts): string[] {

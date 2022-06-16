@@ -3,7 +3,10 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "sourceMap": true,
     "baseUrl": ".",
     "jsx": "react",
@@ -18,18 +21,24 @@
     "experimentalDecorators": true,
     "strict": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@@/*": ["./src/.umi/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@@/*": [
+        "./.noae/*"
+      ]
     }
   },
-  "include": ["mock/**/*", "src/**/*", "config/**/*", ".umirc.ts"],
   "exclude": [
     "node_modules",
     "build",
     "dist",
     "scripts",
-    "src/.umi/*",
+    "acceptance-tests",
     "webpack",
-    "jest"
+    "jest",
+    "src/setupTests.ts",
+    "tslint:latest",
+    "tslint-config-prettier"
   ]
 }

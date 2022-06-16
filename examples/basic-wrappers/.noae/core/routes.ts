@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType } from '/Users/hanje/frontend/projects/noae/packages/runtime';
+import { ApplyPluginsType } from '/Users/hanje/frontend/project/noae/packages/runtime';
 import * as noaeExports from './noaeExports';
 import { plugin } from './plugin';
 

@@ -13,6 +13,7 @@
   "author": "hanje <jerryhiian@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "noae": "^1.1.12"
+    "noae": "^1.1.12",
+    "@noaejs/plugin-model": "^1.1.12"
   }
 }

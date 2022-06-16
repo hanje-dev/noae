@@ -1,6 +1,9 @@
 import React from 'react';
+import { useModel } from 'noae';
 
 const LoginPage = () => {
+  const { description } = useModel('bar');
+  console.log(description);
   return (
     <div>
       <h1>Login Page</h1>

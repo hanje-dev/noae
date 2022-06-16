@@ -3,11 +3,11 @@
   "private": true,
   "workspaces": [
     "packages/*",
+    "packages/plugins/*",
     "examples/*"
   ],
   "scripts": {
     "dev": "lerna run dev --parallel",
-    "build2": "lerna bootstrap && lerna run build",
     "build": "./node_modules/.bin/noae-build",
     "compile": "lerna bootstrap && lerna run compile"
   },
